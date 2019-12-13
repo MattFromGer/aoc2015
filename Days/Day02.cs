@@ -30,5 +30,24 @@ namespace ClassLib
 
             return areaWrappingPaper;
         }
+        
+        public int getRibbonLength()
+        {
+            string[] input = InputHandler.readFile("Day02.txt");
+            var areaWrappingPaper = 0;
+
+            Parallel.ForEach(input, line =>
+            {
+                var dimensions = line.Split("x").Select(int.Parse).ToArray();
+                Array.Sort(dimensions);
+
+                var ribbonPart1 = 2 * dimensions[0] + 2 * dimensions[1];
+                var ribbonPart2 = dimensions[0] * dimensions[1] * dimensions[2];
+
+                Interlocked.Add(ref areaWrappingPaper, ribbonPart1 + ribbonPart2);
+            });
+
+            return areaWrappingPaper;
+        }
     }
 }

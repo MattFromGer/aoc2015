@@ -9,7 +9,7 @@ namespace ClassLib.util
         public static string[] readFile(string fileName)
         {
             var allLines = new string[1000]; //only allocate memory here
-            var fileLocation = "../../../../Days/input";
+            var fileLocation = "../../../../Days/input/";
             using (StreamReader sr = File.OpenText(fileLocation + fileName))
             {
                 int x = 0;

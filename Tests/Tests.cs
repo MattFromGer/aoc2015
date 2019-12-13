@@ -17,7 +17,9 @@ namespace Tests
         {
             var day02 = new Day02();
             var area = day02.getAreaOfWrappingPaper();
-            Trace.Write("Day02: Part 1: "  + area);
+            Trace.WriteLine("Day02: Part 1: "  + area);
+            var ribbonLength = day02.getRibbonLength();
+            Trace.WriteLine("Day02: Part 2: " + ribbonLength);
         }
 
         [Fact]
