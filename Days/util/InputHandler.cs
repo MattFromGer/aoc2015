@@ -1,14 +1,15 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace ClassLib.util
 {
-    public class InputHandler
+    public static class InputHandler
     {
         public static string[] readFile(string fileName)
         {
             var allLines = new string[1000]; //only allocate memory here
-            var fileLocation = "../../../../ClassLib/";
+            var fileLocation = "../../../../Days/input";
             using (StreamReader sr = File.OpenText(fileLocation + fileName))
             {
                 int x = 0;

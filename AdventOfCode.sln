@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLib", "ClassLib\ClassLib.csproj", "{E131EB33-C402-4CB9-B344-25F55E8F26D9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Days", "Days\Days.csproj", "{E131EB33-C402-4CB9-B344-25F55E8F26D9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{097349B3-9CB7-4563-AB7C-E575D6C60C4F}"
 EndProject
