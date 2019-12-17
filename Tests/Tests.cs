@@ -27,10 +27,10 @@ namespace Tests
         public void Day03()
         {
             var day03 = new Day03();
-            var numberOfHouses = day03.getNumberOfHouses();
+            var numberOfHouses = day03.GetNumberOfHouses();
             Assert.Equal(2081, numberOfHouses);
 
-            var numberOfHousesWithRobo = day03.getNumberOfHousesWithRoboSanta();
+            var numberOfHousesWithRobo = day03.GetNumberOfHousesWithRoboSanta();
             Assert.Equal(2341, numberOfHousesWithRobo);
         }
         

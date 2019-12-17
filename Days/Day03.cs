@@ -8,6 +8,51 @@ namespace ClassLib
 {
     public class Day03 : AocDay
     {
+        public int GetNumberOfHouses()
+        {
+            var path = Input[0];
+            var housesVisited = new List<Point>();
+            var santa = new Santa();
+
+            // Init
+            housesVisited.Add(santa.CurrentPosition());
+
+            foreach (char direction in path)
+            {
+                var currentPosition = santa.Move(direction);
+                housesVisited.Add(currentPosition);
+            }
+
+            return housesVisited.Distinct().Count();
+        }
+
+        public int GetNumberOfHousesWithRoboSanta()
+        {
+            var path = Input[0];
+            var housesVisited = new List<Point>();
+            var santa = new Santa();
+            var santaRobo = new Santa();
+
+            // Init
+            housesVisited.Add(santa.CurrentPosition());
+
+            for (int i = 0; i < path.Length; i++)
+            {
+                if (IsOdd(i))
+                {
+                    var currentPosition = santaRobo.Move(path[i]);
+                    housesVisited.Add(currentPosition);
+                }
+                else
+                {
+                    var currentPosition = santa.Move(path[i]);
+                    housesVisited.Add(currentPosition);
+                }
+            }
+
+            return housesVisited.Distinct().Count();
+        }
+
         private class Santa
         {
             private int _x = 0;
@@ -50,52 +95,7 @@ namespace ClassLib
                 '<' => MoveLeft(),
             };
         }
-
-        public int getNumberOfHouses()
-        {
-            var path = Input[0];
-            var housesVisited = new List<Point>();
-            var santa = new Santa();
-
-            // Init
-            housesVisited.Add(santa.CurrentPosition());
-
-            foreach (char direction in path)
-            {
-                var currentPosition = santa.Move(direction);
-                housesVisited.Add(currentPosition);
-            }
-
-            return housesVisited.Distinct().Count();
-        }
-
-        public int getNumberOfHousesWithRoboSanta()
-        {
-            var path = Input[0];
-            var housesVisited = new List<Point>();
-            var santa = new Santa();
-            var santaRobo = new Santa();
-
-            // Init
-            housesVisited.Add(santa.CurrentPosition());
-
-            for (int i = 0; i < path.Length; i++)
-            {
-                if (IsOdd(i))
-                {
-                    var currentPosition = santaRobo.Move(path[i]);
-                    housesVisited.Add(currentPosition);
-                }
-                else
-                {
-                    var currentPosition = santa.Move(path[i]);
-                    housesVisited.Add(currentPosition);
-                }
-            }
-
-            return housesVisited.Distinct().Count();
-        }
-
+        
         private static bool IsOdd(int value)
         {
             return value % 2 != 0;
