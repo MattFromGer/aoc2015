@@ -6,7 +6,7 @@ namespace ClassLib.util
 {
     public static class InputHandler
     {
-        public static string[] readFile(string fileName)
+        public static string[] ReadFile(string fileName)
         {
             var allLines = new string[1000]; //only allocate memory here
             var fileLocation = "../../../../Days/input/";

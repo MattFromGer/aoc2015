@@ -10,7 +10,7 @@ namespace ClassLib.util
 
         protected AocDay()
         {
-            _inputLazy = new Lazy<string[]>(() => InputHandler.readFile(GetType().Name + ".txt"));
+            _inputLazy = new Lazy<string[]>(() => InputHandler.ReadFile( $"{GetType().Name}.txt"));
         }
     }
 }
