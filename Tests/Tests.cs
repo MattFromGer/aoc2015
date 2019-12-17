@@ -33,5 +33,11 @@ namespace Tests
             var numberOfHousesWithRobo = day03.getNumberOfHousesWithRoboSanta();
             Assert.Equal(2341, numberOfHousesWithRobo);
         }
+        
+        [Fact]
+        public void Day04()
+        {
+            var day04 = new Day04();
+        }
     }
 }

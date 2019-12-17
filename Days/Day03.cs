@@ -6,7 +6,7 @@ using ClassLib.util;
 
 namespace ClassLib
 {
-    public class Day03
+    public class Day03 : AocDay
     {
         private class Santa
         {
@@ -53,8 +53,7 @@ namespace ClassLib
 
         public int getNumberOfHouses()
         {
-            string[] input = InputHandler.readFile("Day03.txt");
-            var path = input[0];
+            var path = Input[0];
             var housesVisited = new List<Point>();
             var santa = new Santa();
 
@@ -72,8 +71,7 @@ namespace ClassLib
 
         public int getNumberOfHousesWithRoboSanta()
         {
-            string[] input = InputHandler.readFile("Day03.txt");
-            var path = input[0];
+            var path = Input[0];
             var housesVisited = new List<Point>();
             var santa = new Santa();
             var santaRobo = new Santa();

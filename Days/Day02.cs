@@ -6,14 +6,13 @@ using ClassLib.util;
 
 namespace ClassLib
 {
-    public class Day02
+    public class Day02 : AocDay
     {
         public int getAreaOfWrappingPaper()
         {
-            string[] input = InputHandler.readFile("Day02.txt");
             var areaWrappingPaper = 0;
 
-            Parallel.ForEach(input, line =>
+            Parallel.ForEach(Input, line =>
             {
                 var dimensions = line.Split("x").Select(int.Parse).ToArray();
                 Array.Sort(dimensions);
@@ -33,10 +32,9 @@ namespace ClassLib
         
         public int getRibbonLength()
         {
-            string[] input = InputHandler.readFile("Day02.txt");
             var areaWrappingPaper = 0;
 
-            Parallel.ForEach(input, line =>
+            Parallel.ForEach(Input, line =>
             {
                 var dimensions = line.Split("x").Select(int.Parse).ToArray();
                 Array.Sort(dimensions);
