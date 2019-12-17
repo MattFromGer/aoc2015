@@ -17,15 +17,21 @@ namespace Tests
         {
             var day02 = new Day02();
             var area = day02.getAreaOfWrappingPaper();
-            Trace.WriteLine("Day02: Part 1: "  + area);
+            Assert.Equal(1588178, area);
+            
             var ribbonLength = day02.getRibbonLength();
-            Trace.WriteLine("Day02: Part 2: " + ribbonLength);
+            Assert.Equal(3783758, ribbonLength);
         }
 
         [Fact]
         public void Day03()
         {
-            var day3 = new Day03();
+            var day03 = new Day03();
+            var numberOfHouses = day03.getNumberOfHouses();
+            Assert.Equal(2081, numberOfHouses);
+
+            var numberOfHousesWithRobo = day03.getNumberOfHousesWithRoboSanta();
+            Assert.Equal(2341, numberOfHousesWithRobo);
         }
     }
 }
