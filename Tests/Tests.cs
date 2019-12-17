@@ -38,6 +38,11 @@ namespace Tests
         public void Day04()
         {
             var day04 = new Day04();
+            var numberFiveZeros = day04.GetLowestPositiveNumber("00000");
+            Assert.Equal(117946, numberFiveZeros);
+
+            var numberSixZeros = day04.GetLowestPositiveNumber("000000");
+            Assert.Equal(3938038, numberSixZeros);
         }
     }
 }
