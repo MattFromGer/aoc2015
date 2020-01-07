@@ -16,10 +16,10 @@ namespace Tests
         public void Day02()
         {
             var day02 = new Day02();
-            var area = day02.getAreaOfWrappingPaper();
+            var area = day02.GetAreaOfWrappingPaper();
             Assert.Equal(1588178, area);
             
-            var ribbonLength = day02.getRibbonLength();
+            var ribbonLength = day02.GetRibbonLength();
             Assert.Equal(3783758, ribbonLength);
         }
 
@@ -43,6 +43,17 @@ namespace Tests
 
             var numberSixZeros = day04.GetLowestPositiveNumber("000000");
             Assert.Equal(3938038, numberSixZeros);
+        }
+
+        [Fact]
+        public void Day05()
+        {
+            var day05 = new Day05();
+            var numberOfNiceStrings = day05.GetNumberOfNiceStrings();
+            Assert.Equal(238, numberOfNiceStrings);
+            
+            var numberOfNiceStringsPart2 = day05.GetNumberOfNiceStringsPart2();
+            Assert.Equal(69, numberOfNiceStringsPart2);
         }
     }
 }

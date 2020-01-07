@@ -8,7 +8,7 @@ namespace ClassLib
 {
     public class Day02 : AocDay
     {
-        public int getAreaOfWrappingPaper()
+        public int GetAreaOfWrappingPaper()
         {
             var areaWrappingPaper = 0;
 
@@ -30,7 +30,7 @@ namespace ClassLib
             return areaWrappingPaper;
         }
         
-        public int getRibbonLength()
+        public int GetRibbonLength()
         {
             var areaWrappingPaper = 0;
 
