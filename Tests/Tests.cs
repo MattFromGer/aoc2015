@@ -55,5 +55,16 @@ namespace Tests
             var numberOfNiceStringsPart2 = day05.GetNumberOfNiceStringsPart2();
             Assert.Equal(69, numberOfNiceStringsPart2);
         }
+        
+        [Fact]
+        public void Day06()
+        {
+            var day06 = new Day06();
+            var numberOfLitLights = day06.GetNumberOfLitLights();
+            Assert.Equal(400410, numberOfLitLights);
+
+            var totalBrightness = day06.GetTotalBrightness();
+            Assert.Equal(15343601, totalBrightness);
+        }
     }
 }
