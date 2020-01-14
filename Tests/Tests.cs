@@ -66,5 +66,16 @@ namespace Tests
             var totalBrightness = day06.GetTotalBrightness();
             Assert.Equal(15343601, totalBrightness);
         }
+        
+        [Fact]
+        public void Day07()
+        {
+            var day07 = new Day07();
+            var signalOfWireA = day07.GetSignalOfWireA();
+            Assert.Equal(3176, signalOfWireA);
+
+            var signalWithNewValueOfWireA = day07.GetSignalWithNewValueOfWireA(signalOfWireA);
+            Assert.Equal(14710, signalWithNewValueOfWireA);
+        }
     }
 }
