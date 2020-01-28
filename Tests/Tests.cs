@@ -77,5 +77,16 @@ namespace Tests
             var signalWithNewValueOfWireA = day07.GetSignalWithNewValueOfWireA(signalOfWireA);
             Assert.Equal(14710, signalWithNewValueOfWireA);
         }
+
+        [Fact]
+        public void Day08()
+        {
+            var day08 = new Day08();
+            var totalNumberOfEscapedCharacters = day08.GetNumberOfCharactersOfCode();
+            Assert.Equal(1371, totalNumberOfEscapedCharacters);
+            
+            var totalNumberOfDoubleEscapedCharacters = day08.GetNumberOfCharactersDoubleEscaped();
+            Assert.Equal(2117, totalNumberOfDoubleEscapedCharacters);
+        }
     }
 }
