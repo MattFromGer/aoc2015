@@ -88,5 +88,16 @@ namespace Tests
             var totalNumberOfDoubleEscapedCharacters = day08.GetNumberOfCharactersDoubleEscaped();
             Assert.Equal(2117, totalNumberOfDoubleEscapedCharacters);
         }
+        
+        [Fact]
+        public void Day09()
+        {
+            var day09 = new Day09();
+            var distanceShortest = day09.GetShortestPath();
+            Assert.Equal(251, distanceShortest);
+
+            var distanceLongest = day09.GetLongestPath();
+            Assert.Equal(898, distanceLongest);
+        }
     }
 }
