@@ -99,5 +99,17 @@ namespace Tests
             var distanceLongest = day09.GetLongestPath();
             Assert.Equal(898, distanceLongest);
         }
+        
+        [Fact]
+        public void Day10()
+        {
+            var day10 = new Day10();
+            var length = day10.GetLengthOfStringAfter40Times();
+             Assert.Equal(252594, length);
+            
+            var lengthPart2 = day10.GetLengthOfStringAfter50Times();
+            Assert.Equal(3579328, lengthPart2);
+
+        }
     }
 }
