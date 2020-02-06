@@ -117,8 +117,10 @@ namespace Tests
         {
             var day11 = new Day11();
             var newPw = day11.FindNewPassword();
-            Assert.Equal("abcdef", newPw);
+            Assert.Equal("cqjxxyzz", newPw);
 
+            var newPw2 = day11.FindNewPassword(newPw);
+            Assert.Equal("cqkaabcc", newPw2);
         }
     }
 }

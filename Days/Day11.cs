@@ -8,60 +8,71 @@ namespace ClassLib
 {
     public class Day11 : AocDay
     {
+        private StringBuilder _pw;
+        private string _previousPw;
+        private readonly string _lastString = "zzzzzzzz";
+
         private readonly IList<char> _forbiddenChars = new List<char>()
         {
             'i', 'o', 'l'
         };
-
-        public string FindNewPassword()
+        
+        public string FindNewPassword(string previousPw = null)
         {
-            var currentPw = Input[0];
-            while (!IsMeetingConstrains(currentPw))
+            if (previousPw == null)
             {
-                currentPw = GetNextPassword(currentPw);
+                previousPw = Input[0];
+            }
+            
+            _previousPw = previousPw;
+            _pw = new StringBuilder(previousPw); 
+            while (!IsMeetingConstrains())
+            {
+                SetNextPassword();
             }
 
-            return currentPw;
+            return _pw.ToString();
         }
 
-        private string GetNextPassword(string previousPw)
+        private void SetNextPassword()
         {
-            var newPw = new StringBuilder(previousPw);
-
-            for (int i = newPw.Length - 1; i >= 0; i--)
+            for (int i = _pw.Length - 1; i >= 0; i--)
             {
-                var c = newPw[i];
+                var c = _pw[i];
                 if (c == 'z')
                 {
-                    newPw[i] = 'a';
+                    _pw[i] = 'a';
                     continue;
                 }
-
-                newPw[i]++;
-                if (_forbiddenChars.Contains(c))
-                {
-                    newPw[i]++;
-                }
-
+        
+                _pw[i]++;
                 break;
             }
-
-            return newPw.ToString();
         }
 
-        private bool IsMeetingConstrains(string pw)
+        private bool IsMeetingConstrains()
         {
-            if (pw.Any(x => _forbiddenChars.Contains(x)))
+            if(_pw.ToString() == "zzzzzzzz")
+            {
+                throw new OverflowException("No new password found");
+            }
+
+            if (_pw.ToString() == _previousPw)
             {
                 return false;
             }
 
-            if (!ContainAtLeastTwoPairs(pw))
+            for (int i = 0; i < _pw.Length; i++)
+            {
+                if (_forbiddenChars.Contains(_pw[i])) return false;
+            }
+            
+            if (!ContainAtLeastTwoPairs())
             {
                 return false;
             }
 
-            if (!Contains3CharsInStreet(pw))
+            if (!Contains3CharsInStreet())
             {
                 return false;
             }
@@ -69,13 +80,13 @@ namespace ClassLib
             return true;
         }
 
-        private bool ContainAtLeastTwoPairs(string pw)
+        private bool ContainAtLeastTwoPairs()
         {
             var pairCount = 0;
-            for (var i = 0; i < pw.Length - 1; i++)
+            for (var i = 0; i < _pw.Length - 1; i++)
             {
-                var c = pw[i];
-                var c1 = pw[i + 1];
+                var c = _pw[i];
+                var c1 = _pw[i + 1];
 
                 if (c == c1)
                 {
@@ -92,15 +103,15 @@ namespace ClassLib
             return false;
         }
 
-        private bool Contains3CharsInStreet(string pw)
+        private bool Contains3CharsInStreet()
         {
-            for (int i = 0; i < pw.Length - 2; i++)
+            for (int i = 0; i < _pw.Length - 2; i++)
             {
-                var c = pw[i];
-                var c1 = pw[i + 1];
-                var c2 = pw[i + 2];
+                var c = _pw[i];
+                var c1 = _pw[i + 1];
+                var c2 = _pw[i + 2];
 
-                if (c == c1 && c == c1 + 1 && c2 == c2 + 2)
+                if (c1 == c + 1 && c2 == c + 2)
                 {
                     return true;
                 }
