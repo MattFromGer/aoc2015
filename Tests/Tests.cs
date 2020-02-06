@@ -111,5 +111,14 @@ namespace Tests
             Assert.Equal(3579328, lengthPart2);
 
         }
+        
+        [Fact]
+        public void Day11()
+        {
+            var day11 = new Day11();
+            var newPw = day11.FindNewPassword();
+            Assert.Equal("abcdef", newPw);
+
+        }
     }
 }
