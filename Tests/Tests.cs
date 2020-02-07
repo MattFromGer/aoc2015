@@ -10,6 +10,11 @@ namespace Tests
         public void Day01()
         {
             var day01 = new Day01();
+            var lvl = day01.GetFloorLevel();
+            Assert.Equal(138, lvl);
+
+            var basementPos = day01.GetFirstPositionInBasement();
+            Assert.Equal(1771, basementPos);
         }
 
         [Fact]
