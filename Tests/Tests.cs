@@ -122,5 +122,16 @@ namespace Tests
             var newPw2 = day11.FindNewPassword(newPw);
             Assert.Equal("cqkaabcc", newPw2);
         }
+
+        [Fact]
+        public void Day12()
+        {
+            var day12 = new Day12();
+            var sum = day12.GetTotalSumOfNumbers();
+            Assert.Equal(119433, sum);
+
+            var sumWithoutRed = day12.GetTotalSumOfNumbersWithoutRed();
+            Assert.Equal(68466, sumWithoutRed);
+        }
     }
 }
