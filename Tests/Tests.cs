@@ -138,5 +138,16 @@ namespace Tests
             var sumWithoutRed = day12.GetTotalSumOfNumbersWithoutRed();
             Assert.Equal(68466, sumWithoutRed);
         }
+
+        [Fact]
+        public void Day13()
+        {
+            var day13 = new Day13();
+            var maxHappiness = day13.GetMaxHappiness();
+            Assert.Equal(664, maxHappiness);
+
+            var maxHappinessWithNewPerson = day13.GetMaxHappinessWithAddedPerson();
+            Assert.Equal(640, maxHappinessWithNewPerson);
+        }
     }
 }
