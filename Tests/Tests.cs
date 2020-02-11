@@ -149,5 +149,16 @@ namespace Tests
             var maxHappinessWithNewPerson = day13.GetMaxHappinessWithAddedPerson();
             Assert.Equal(640, maxHappinessWithNewPerson);
         }
+
+        [Fact]
+        public void Day14()
+        {
+            var day14 = new Day14();
+            var distanceOfWinningReindeer = day14.GetDistanceOfWinnerAfter(2503);
+            Assert.Equal(2655, distanceOfWinningReindeer);
+
+            var pointsOfWinningReindeer = day14.GetPointsOfWinner(2503);
+            Assert.Equal(1059, pointsOfWinningReindeer);
+        }
     }
 }
