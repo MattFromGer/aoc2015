@@ -170,5 +170,16 @@ namespace Tests
             var bestScoreAt500Calories = day15.GetScoreOfBestCookieAt500Calories();
             Assert.Equal(1766400, bestScoreAt500Calories);
         }
+
+        [Fact]
+        public void Day16()
+        {
+            var day16 = new Day16();
+            var numberOfAunt = day16.GetNumberOfAunt();
+            Assert.Equal(103, numberOfAunt);
+
+            var numberOfRealAunt = day16.GetNumberOfRealAunt();
+            Assert.Equal(405, numberOfRealAunt);
+        }
     }
 }
