@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using Xunit;
 using ClassLib;
 
@@ -159,6 +158,17 @@ namespace Tests
 
             var pointsOfWinningReindeer = day14.GetPointsOfWinner(2503);
             Assert.Equal(1059, pointsOfWinningReindeer);
+        }
+
+        [Fact]
+        public void Day15()
+        {
+            var day15 = new Day15();
+            var bestScore = day15.GetScoreOfBestCookie();
+            Assert.Equal(21367368, bestScore);
+
+            var bestScoreAt500Calories = day15.GetScoreOfBestCookieAt500Calories();
+            Assert.Equal(1766400, bestScoreAt500Calories);
         }
     }
 }
