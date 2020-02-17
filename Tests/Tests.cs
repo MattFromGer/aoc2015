@@ -181,5 +181,16 @@ namespace Tests
             var numberOfRealAunt = day16.GetNumberOfRealAunt();
             Assert.Equal(405, numberOfRealAunt);
         }
+
+        [Fact]
+        public void Day17()
+        {
+            var day17 = new Day17();
+            var numberOfCombinations = day17.GetNumberOfCombinations(150);
+            Assert.Equal(1638, numberOfCombinations);
+
+            var minNumberOfCombinations = day17.GetMinNumberOfContainers(150);
+            Assert.Equal(17, minNumberOfCombinations);
+        }
     }
 }
