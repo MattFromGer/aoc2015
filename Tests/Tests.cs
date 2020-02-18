@@ -192,5 +192,16 @@ namespace Tests
             var minNumberOfCombinations = day17.GetMinNumberOfContainers(150);
             Assert.Equal(17, minNumberOfCombinations);
         }
+
+        [Fact]
+        public void Day18()
+        {
+            var day18 = new Day18();
+            var numOfLights = day18.GetNumberOfLightsSwitchedOn(100);
+            Assert.Equal(1061, numOfLights);
+
+            var numOfLightsConway = day18.GetNumberOfLightsSwitchedOnConway(100);
+            Assert.Equal(1006, numOfLightsConway);
+        }
     }
 }
