@@ -203,5 +203,14 @@ namespace Tests
             var numOfLightsConway = day18.GetNumberOfLightsSwitchedOnConway(100);
             Assert.Equal(1006, numOfLightsConway);
         }
+
+        [Fact]
+        public void Day19()
+        {
+            var day19 = new Day19();
+            var uniqueCombinations = day19.GetNumberOfPossibleMolecules();
+            Assert.Equal(576, uniqueCombinations);
+
+        }
     }
 }

@@ -1,0 +1,62 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+using ClassLib.util;
+
+namespace ClassLib
+{
+    public class Day19 : AocDay
+    {
+        private static readonly Regex InputRegex = new Regex(@"(\w*) => (\w*)");
+
+        public int GetNumberOfPossibleMolecules()
+        {
+            var mappings = ParseInput(Input);
+            var molecule = Input.Last();
+
+            var molecules = GetAllPossibleMolecules(mappings, molecule);
+
+            return molecules.Distinct().Count();
+        }
+
+        public int GetMinNumberOfSteps()
+        {
+            var mappings = ParseInput(Input);
+            var molecule = Input.Last();
+
+            throw new NotImplementedException();
+        }
+        
+        
+        private IEnumerable<string> GetAllPossibleMolecules(IEnumerable<MoleculeMapping> mappings, string haystack)
+        {
+            return (from mapping in mappings
+                let needle = mapping.Input
+                from Match match in Regex.Matches(haystack, needle)
+                select haystack.Remove(match.Index, needle.Length)
+                    .Insert(match.Index, mapping.Output)).ToList();
+        }
+
+        private IEnumerable<MoleculeMapping> ParseInput(string[] input)
+        {
+            return input
+                .TakeWhile(s => !string.IsNullOrEmpty(s))
+                .Select(s => InputRegex.Match(s))
+                .Select(match =>
+                    new MoleculeMapping(match.Groups[1].Value, match.Groups[2].Value));
+        }
+
+        private class MoleculeMapping
+        {
+            public string Input { get; }
+            public string Output { get; }
+
+            public MoleculeMapping(string input, string output)
+            {
+                Input = input;
+                Output = output;
+            }
+        }
+    }
+}
