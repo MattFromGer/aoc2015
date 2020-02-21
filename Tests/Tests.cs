@@ -212,5 +212,13 @@ namespace Tests
             Assert.Equal(576, uniqueCombinations);
 
         }
+
+        [Fact]
+        public void Day20()
+        {
+            var day20 = new Day20();
+            var lowestHouse = day20.GetLowestHouse();
+            Assert.Equal(831600, lowestHouse);
+        }
     }
 }
