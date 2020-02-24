@@ -220,5 +220,16 @@ namespace Tests
             var lowestHouse = day20.GetLowestHouse();
             Assert.Equal(831600, lowestHouse);
         }
+
+        [Fact]
+        public void Day21()
+        {
+            var day21 = new Day21();
+            var minCost = day21.GetMinCostOfWinning();
+            Assert.Equal(78, minCost);
+
+            var maxCost = day21.GetMaxCostOfLosing();
+            Assert.Equal(148, maxCost);
+        }
     }
 }
