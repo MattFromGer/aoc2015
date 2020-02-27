@@ -231,5 +231,16 @@ namespace Tests
             var maxCost = day21.GetMaxCostOfLosing();
             Assert.Equal(148, maxCost);
         }
+
+        [Fact]
+        public void Day23()
+        {
+            var day23 = new Day23();
+            var value = day23.GetValueOfRegisterB();
+            Assert.Equal(170u, value);
+
+            var valueInit1 = day23.GetValueOfRegisterB(1);
+            Assert.Equal(247u, valueInit1);
+        }
     }
 }
