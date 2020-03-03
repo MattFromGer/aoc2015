@@ -253,5 +253,13 @@ namespace Tests
             var qe4 = day24.GetQuantumEntanglementWithFourGroups();
             Assert.Equal(72050269, qe4);
         }
+        
+        [Fact]
+        public void Day25()
+        {
+            var day25 = new Day25();
+            var code = day25.GetCodeForWeatherMachine();
+            Assert.Equal(9132360, code);
+        }
     }
 }
