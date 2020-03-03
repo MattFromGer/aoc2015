@@ -242,5 +242,16 @@ namespace Tests
             var valueInit1 = day23.GetValueOfRegisterB(1);
             Assert.Equal(247u, valueInit1);
         }
+
+        [Fact]
+        public void Day24()
+        {
+            var day24 = new Day24();
+            var qe3 = day24.GetQuantumEntanglementWithThreeGroups();
+            Assert.Equal(10439961859, qe3);
+            
+            var qe4 = day24.GetQuantumEntanglementWithFourGroups();
+            Assert.Equal(72050269, qe4);
+        }
     }
 }
