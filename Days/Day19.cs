@@ -24,11 +24,25 @@ namespace ClassLib
         {
             var mappings = ParseInput(Input);
             var molecule = Input.Last();
+            
+            var inputElements = mappings
+                .Where(x => !x.IsFinalReaction)
+                .Select(x => x.Input)
+                .ToList();
 
-            throw new NotImplementedException();
+            var elementsRnAr = new[] {"Rn", "Ar"};
+            var elementsY = new[] {"Y"};
+            
+            inputElements.AddRange(elementsRnAr);
+            inputElements.AddRange(elementsY);
+            
+            var noOfElements = Regex.Matches(molecule, string.Join("|", inputElements)).Count();
+            var noOfElementsRnAr = Regex.Matches(molecule, string.Join("|", elementsRnAr)).Count();
+            var noOfElementsY = Regex.Matches(molecule, string.Join("|", elementsY)).Count();
+
+            return noOfElements - noOfElementsRnAr - 2 * noOfElementsY - 1;
         }
-        
-        
+
         private IEnumerable<string> GetAllPossibleMolecules(IEnumerable<MoleculeMapping> mappings, string haystack)
         {
             return (from mapping in mappings
@@ -51,11 +65,17 @@ namespace ClassLib
         {
             public string Input { get; }
             public string Output { get; }
-
+            public bool IsFinalReaction => Input == "e";
+            
             public MoleculeMapping(string input, string output)
             {
                 Input = input;
                 Output = output;
+            }
+
+            public override string ToString()
+            {
+               return $"{Input} => {Output}";
             }
         }
     }

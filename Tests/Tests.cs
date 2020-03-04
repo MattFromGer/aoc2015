@@ -211,6 +211,8 @@ namespace Tests
             var uniqueCombinations = day19.GetNumberOfPossibleMolecules();
             Assert.Equal(576, uniqueCombinations);
 
+            var minNoOfSteps = day19.GetMinNumberOfSteps();
+            Assert.Equal(207, minNoOfSteps);
         }
 
         [Fact]
