@@ -12,6 +12,15 @@ namespace ClassLib
             return GetLowestHouseAlg2(minNumOfPresents);
         }
 
+        public long GetLowestHouseMax50()
+        {
+            var minNumOfPresents = Convert.ToInt32(Input[0]);
+            
+            var sigmaCache = GenerateSigmaCache(minNumOfPresents, 11, 50);
+
+            return GetNoOfIterations(minNumOfPresents, sigmaCache);
+        }
+
         private int GetLowestHouseAlg2(int targetAmount)
         {
             for (int i = 1; i < targetAmount / 10; i++)
@@ -37,8 +46,13 @@ namespace ClassLib
         
         private int GetLowestHouseAlg1(int targetAmount)
         {
-            var sigmaCache = GenerateSigmaCache(targetAmount);
+            var sigmaCache = GenerateSigmaCache(targetAmount, 10);
 
+            return GetNoOfIterations(targetAmount, sigmaCache);
+        }
+
+        private static int GetNoOfIterations(int targetAmount, int[] sigmaCache)
+        {
             int value = 0;
             var iterations = 1;
             while (value < targetAmount)
@@ -46,19 +60,22 @@ namespace ClassLib
                 value = sigmaCache[iterations];
                 iterations++;
             }
-            
+
             return iterations - 1;
         }
 
         //Use sieve-like method to compute sum of divisors
-        private static int[] GenerateSigmaCache(int targetAmount)
+        private static int[] GenerateSigmaCache(int targetAmount, int noOfPresents, int? maxHousesPerElf = null)
         {
-            int[] sigmaCache = new int[targetAmount / 10 + 1];
-            for (int i = 1; i <= targetAmount / 10; i++)
+            int top = targetAmount / noOfPresents;
+            int[] sigmaCache = new int[top + 1];
+            for (int i = 1; i <= top; i++)
             {
-                for (int j = i; j <= targetAmount / 10; j += i)
+                var topForElf = (maxHousesPerElf - 1) * i ?? top;
+                topForElf = topForElf > top ? top : topForElf;
+                for (int j = i; j <= topForElf; j += i)
                 {
-                    sigmaCache[j] += i * 10;
+                    sigmaCache[j] += i * noOfPresents;
                 }
             }
 

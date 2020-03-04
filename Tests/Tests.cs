@@ -219,6 +219,10 @@ namespace Tests
             var day20 = new Day20();
             var lowestHouse = day20.GetLowestHouse();
             Assert.Equal(831600, lowestHouse);
+            
+            var lowestHouseMax50 = day20.GetLowestHouseMax50();
+            Assert.Equal(884520, lowestHouseMax50);
+            
         }
 
         [Fact]
