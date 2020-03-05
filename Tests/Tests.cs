@@ -239,6 +239,17 @@ namespace Tests
         }
 
         [Fact]
+        public void Day22()
+        {
+            var day22 = new Day22();
+            var minAmount = day22.GetMinAmountOfManaToWin();
+            Assert.Equal(1824, minAmount);
+            
+            var minAmountHard = day22.GetMinAmountOfManaToWinHardMode();
+            Assert.Equal(1937, minAmountHard);
+        }
+
+        [Fact]
         public void Day23()
         {
             var day23 = new Day23();
